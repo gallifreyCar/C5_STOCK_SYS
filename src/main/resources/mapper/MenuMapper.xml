@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Dao层访问实现文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Gallifrey.springboot00.mapper.MenuMapper">
+    <resultMap id="menuMap" type="com.Gallifrey.springboot00.bean.MainMenu">
+        <id column="id" property="id"></id>
+        <result column="title" property="title"></result>
+        <result column="path" property="path"></result>
+        <collection property="subMenuList" ofType="com.Gallifrey.springboot00.bean.SubMenu">
+            <id column="sId" property="id"></id>
+            <result column="sTitle" property="title"></result>
+            <result column="sPath" property="path"></result>
+        </collection>
+    </resultMap>
+    <select id="getMenus" resultMap="menuMap">
+        select mm.*,sm.id as sId,sm.title as sTitle,sm.path as sPath from mainmenu mm,submenu sm where mm.id=sm.mainId
+    </select>
+</mapper>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>订单信息</title>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+
+</head>
+<body>
+<h1 th:text="'收货人: '  +${whoget}"+${}></h1>
+<h1 th:text="'发货人: '  +${whosend}"+${}></h1>
+<h1 th:text="'收货地址: '  +${destination}"+${}></h1>
+<h1 th:text="'发货地址: '  +${shipmentPlace}"+${}></h1>
+<h1 th:text="'信息: '  +${kdInfo}"+${}></h1>
+</body>
+</html>

@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    name: ckgl
+    url: jdbc:mysql://101.43.65.22:3306/ckgl
+    username: root
+    password: rootroot
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.Gallifrey.springboot00.bean
+
+
+server:
+  port: 9001
