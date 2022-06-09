@@ -5,6 +5,7 @@ import com.Gallifrey.springboot00.bean.OutStock;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,4 +23,6 @@ public interface InStockMapper {
     @Insert("insert into inStock (Ono,Gno,Pno,Innum,Indate,Inprice) values(#{ono},#{gno},#{pno},#{innum},#{indate},#{inprice})")
     public int addInStock(InStock inStock);
 
+    @Update("update inStock set Gno=#{gno},Pno=#{pno},Innum=#{innum},Indate=#{indate},Inprice=#{inprice} where Ono=#{Ono}")
+    public int editInStock( InStock inStock);
 }

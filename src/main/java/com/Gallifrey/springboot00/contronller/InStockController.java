@@ -52,4 +52,11 @@ public class InStockController {
         int i=inStockMapper.addInStock(inStock);
         return i>0?"success":"error";
     }
+
+    //修改
+    @RequestMapping("/editInStock")
+    public String editOne(@RequestBody InStock inStock){
+        int i=inStockMapper.editInStock(inStock);
+        return i>0?"success":"error";
+    }
 }
