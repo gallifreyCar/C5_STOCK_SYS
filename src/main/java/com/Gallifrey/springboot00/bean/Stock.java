@@ -12,7 +12,7 @@ public class Stock {
         private String Gname;
         private String Gnum;
         private String Tname;
-        private String Ssize;
+        private int Ssize;
         private String Sno;
         private String Sname;
 
