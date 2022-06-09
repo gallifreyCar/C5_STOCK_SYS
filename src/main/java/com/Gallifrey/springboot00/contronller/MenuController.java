@@ -13,7 +13,7 @@ import java.util.List;
 
 //获得菜单
 
-@CrossOrigin("http://localhost:8080")
+@CrossOrigin("http://localhost:8087")
 @RestController
 public class MenuController {
 
