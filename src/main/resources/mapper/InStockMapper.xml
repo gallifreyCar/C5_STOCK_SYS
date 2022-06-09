@@ -16,7 +16,7 @@
     <select id="getCounts" resultType="java.lang.Integer">
         select count(*) from sellIn
         <if test="name!= null">
-        where Pname like #{name}
+            where Pname like #{name} or Gname like #{name} or Sname like #{name}
         </if>
     </select>
 

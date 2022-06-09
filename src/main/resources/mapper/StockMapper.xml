@@ -16,7 +16,7 @@
     <select id="getCounts" resultType="java.lang.Integer">
         select count(*) from _stock
         <if test="name!= null">
-        where Gname like #{name}
+            where Gname like #{name} or Tname like #{name} or Sname like #{name}
         </if>
     </select>
 
