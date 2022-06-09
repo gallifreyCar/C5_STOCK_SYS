@@ -5,8 +5,10 @@ import com.Gallifrey.springboot00.bean.OutStock;
 import com.Gallifrey.springboot00.bean.QueryInfo;
 import com.Gallifrey.springboot00.mapper.InStockMapper;
 import com.Gallifrey.springboot00.mapper.OutStockMapper;
+import org.apache.ibatis.annotations.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,9 +41,15 @@ public class InStockController {
 
     //删除
     @RequestMapping("/deleteInStock")
-    public String deleteUser(String ono){
+    public String delete(String ono){
         int i=inStockMapper.delete(ono);
         return i>0?"success":"error";
     }
 
+    //增加
+    @RequestMapping("/addInStock")
+    public String addOne(@RequestBody InStock inStock){
+        int i=inStockMapper.addInStock(inStock);
+        return i>0?"success":"error";
+    }
 }

@@ -3,6 +3,7 @@ package com.Gallifrey.springboot00.mapper;
 import com.Gallifrey.springboot00.bean.InStock;
 import com.Gallifrey.springboot00.bean.OutStock;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -17,5 +18,8 @@ public interface InStockMapper {
 
     @Delete("delete from inStock where Ono=#{ono}")
     public int delete(String ono);
+
+    @Insert("insert into inStock (Ono,Gno,Pno,Innum,Indate,Inprice) values(#{ono},#{gno},#{pno},#{innum},#{indate},#{inprice})")
+    public int addInStock(InStock inStock);
 
 }
