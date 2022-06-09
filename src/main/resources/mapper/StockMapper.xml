@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Dao层访问实现文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Gallifrey.springboot00.mapper.StockMapper">
+
+<!--    查询全部出库信息 通过用户名或者仓库名（如果存在）-->
+    <select id="getAllStock" resultType="com.Gallifrey.springboot00.bean.Stock">
+        select * from _stock
+        <if test="name!=null"> where Gname like #{name} or Tname like #{name} or Sname like #{name} </if>
+--      分页语句
+        limit #{pageStart},#{pageSize}
+    </select>
+
+<!--查询信息条数 -->
+    <select id="getCounts" resultType="java.lang.Integer">
+        select count(*) from _stock
+        <if test="name!= null">
+        where Gname like #{name}
+        </if>
+    </select>
+
+</mapper>
