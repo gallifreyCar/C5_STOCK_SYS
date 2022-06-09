@@ -31,10 +31,17 @@ public class StockController {
 
         HashMap<String ,Object> res=new HashMap<>();
         res.put("numbers",numbers);
-        System.out.println(Stocks);
+//        System.out.println(Stocks);
         res.put("data",Stocks);
 
         return res;
     }
 
+
+    //删除
+    @RequestMapping("/deleteStock")
+    public String deleteUser(String sno,String gno){
+        int i=stockMapper.delete(sno,gno);
+        return i>0?"success":"error";
+    }
 }

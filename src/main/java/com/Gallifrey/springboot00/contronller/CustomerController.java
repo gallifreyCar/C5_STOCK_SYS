@@ -29,10 +29,17 @@ public class CustomerController {
 
         HashMap<String ,Object> res=new HashMap<>();
         res.put("numbers",numbers);
-        System.out.println(customers);
+//        System.out.println(customers);
         res.put("data",customers);
 
         return res;
     }
 
+
+    //删除
+    @RequestMapping("/deleteCustomer")
+    public String deleteUser(String cno){
+        int i=Mapper.delete(cno);
+        return i>0?"success":"error";
+    }
 }

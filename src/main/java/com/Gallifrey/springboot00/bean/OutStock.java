@@ -6,7 +6,7 @@ import java.sql.Date;
 @Data
 public class OutStock {
     //出库实体类
-
+        private String Ono;
         private String Cno;
         private String Gno;
         private String Cname;

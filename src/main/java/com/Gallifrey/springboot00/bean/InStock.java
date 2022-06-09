@@ -7,7 +7,7 @@ import java.sql.Date;
 @Data
 public class InStock {
     //入库实体类
-
+        private String Ono;
         private String Pno;
         private String Gno;
         private String Pname;

@@ -2,6 +2,7 @@ package com.Gallifrey.springboot00.mapper;
 
 import com.Gallifrey.springboot00.bean.Provider;
 import com.Gallifrey.springboot00.bean.StockHouse;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -13,4 +14,7 @@ public interface StockHouseMapper {
     public int getCounts(String name);
 
     public List<StockHouse> getAllList(String name, int pageStart, int pageSize);
+
+    @Delete("delete from storehouse where Sno=#{sno}")
+    public int delete(String sno);
 }

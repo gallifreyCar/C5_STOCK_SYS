@@ -31,10 +31,17 @@ public class GoodController {
 
         HashMap<String ,Object> res=new HashMap<>();
         res.put("numbers",numbers);
-        System.out.println(providers);
+//        System.out.println(providers);
         res.put("data",providers);
 
         return res;
+    }
+
+    //删除
+    @RequestMapping("/deleteGood")
+    public String deleteUser(String gno){
+        int i=Mapper.delete(gno);
+        return i>0?"success":"error";
     }
 
 }

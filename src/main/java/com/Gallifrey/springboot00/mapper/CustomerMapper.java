@@ -2,6 +2,7 @@ package com.Gallifrey.springboot00.mapper;
 
 import com.Gallifrey.springboot00.bean.Customer;
 import com.Gallifrey.springboot00.bean.InStock;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -13,4 +14,7 @@ public interface CustomerMapper {
     public int getCounts(String name);
 
     public List<Customer> getAllList(String name, int pageStart, int pageSize);
+
+    @Delete("delete from customer where Cno=#{cno}")
+    public int delete(String cno);
 }

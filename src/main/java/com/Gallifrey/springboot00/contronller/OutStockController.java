@@ -20,6 +20,7 @@ public class OutStockController {
     @Autowired
     OutStockMapper outStockMapper;
 
+    //查询
     @RequestMapping("/getOutStock")
     public HashMap outStock(QueryInfo queryInfo){
 
@@ -31,10 +32,17 @@ public class OutStockController {
 
         HashMap<String ,Object> res=new HashMap<>();
         res.put("numbers",numbers);
-        System.out.println(outStocks);
+//        System.out.println(outStocks);
         res.put("data",outStocks);
 
         return res;
     }
+    //删除
+    @RequestMapping("/deleteOutStock")
+    public String deleteUser(String id){
+        int i=outStockMapper.delete(id);
+        return i>0?"success":"error";
+    }
+
 
 }

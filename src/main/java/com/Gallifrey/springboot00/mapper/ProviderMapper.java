@@ -2,6 +2,7 @@ package com.Gallifrey.springboot00.mapper;
 
 import com.Gallifrey.springboot00.bean.Customer;
 import com.Gallifrey.springboot00.bean.Provider;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -13,4 +14,7 @@ public interface ProviderMapper {
     public int getCounts(String name);
 
     public List<Provider> getAllList(String name, int pageStart, int pageSize);
+
+    @Delete("delete from provider where Pno=#{pno}")
+    public int delete(String pno);
 }
