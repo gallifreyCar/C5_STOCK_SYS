@@ -6,7 +6,7 @@ import lombok.Data;
 public class QueryInfo {
      private String query;// 查询信息 username
      private int pageNum=1;// 当前页
-     private int pageSize=1;//每页最大数
+     private int pageSize=3;//每页最大数
 
 
 }

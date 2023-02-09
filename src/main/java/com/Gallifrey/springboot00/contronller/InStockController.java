@@ -7,22 +7,19 @@ import com.Gallifrey.springboot00.mapper.InStockMapper;
 import com.Gallifrey.springboot00.mapper.OutStockMapper;
 import org.apache.ibatis.annotations.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 
-@CrossOrigin("http://localhost:8087")
-@RestController
 
+@RestController
+@CrossOrigin
 public class InStockController {
     @Autowired
     InStockMapper inStockMapper;
 
-    @RequestMapping("/getInStock")
+    @GetMapping("/getInStock")
     public HashMap inStock(QueryInfo queryInfo){
 
         //获取最大列表数和当前编号
@@ -40,21 +37,21 @@ public class InStockController {
     }
 
     //删除
-    @RequestMapping("/deleteInStock")
+    @PostMapping("/deleteInStock")
     public String delete(String ono){
         int i=inStockMapper.delete(ono);
         return i>0?"success":"error";
     }
 
     //增加
-    @RequestMapping("/addInStock")
+    @PostMapping("/addInStock")
     public String addOne(@RequestBody InStock inStock){
         int i=inStockMapper.addInStock(inStock);
         return i>0?"success":"error";
     }
 
     //修改
-    @RequestMapping("/editInStock")
+    @PostMapping("/editInStock")
     public String editOne(@RequestBody InStock inStock){
         int i=inStockMapper.editInStock(inStock);
         return i>0?"success":"error";

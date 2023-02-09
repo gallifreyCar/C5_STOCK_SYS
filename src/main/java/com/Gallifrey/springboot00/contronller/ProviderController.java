@@ -6,21 +6,19 @@ import com.Gallifrey.springboot00.bean.QueryInfo;
 import com.Gallifrey.springboot00.mapper.CustomerMapper;
 import com.Gallifrey.springboot00.mapper.ProviderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 
-@CrossOrigin("http://localhost:8087")
-@RestController
 
+@RestController
+@CrossOrigin
 public class ProviderController {
     @Autowired
     ProviderMapper Mapper;
 
-    @RequestMapping("/getProvider")
+    @GetMapping("/getProvider")
     public HashMap getList(QueryInfo queryInfo){
 
         //获取最大列表数和当前编号
@@ -38,7 +36,7 @@ public class ProviderController {
     }
 
     //删除
-    @RequestMapping("/deleteProvider")
+    @PostMapping("/deleteProvider")
     public String deleteUser(String pno){
         int i=Mapper.delete(pno);
         return i>0?"success":"error";

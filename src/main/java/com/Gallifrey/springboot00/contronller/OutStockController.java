@@ -1,27 +1,26 @@
 package com.Gallifrey.springboot00.contronller;
 
+import com.Gallifrey.springboot00.bean.InStock;
 import com.Gallifrey.springboot00.bean.OutStock;
 import com.Gallifrey.springboot00.bean.QueryInfo;
 import com.Gallifrey.springboot00.bean.User;
 import com.Gallifrey.springboot00.mapper.OutStockMapper;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 
-@CrossOrigin("http://localhost:8087")
-@RestController
 
+@RestController
+@CrossOrigin
 public class OutStockController {
     @Autowired
     OutStockMapper outStockMapper;
 
     //查询
-    @RequestMapping("/getOutStock")
+    @GetMapping("/getOutStock")
     public HashMap outStock(QueryInfo queryInfo){
 
         //获取最大列表数和当前编号
@@ -38,11 +37,24 @@ public class OutStockController {
         return res;
     }
     //删除
-    @RequestMapping("/deleteOutStock")
+    @PostMapping("/deleteOutStock")
     public String deleteUser(String id){
         int i=outStockMapper.delete(id);
         return i>0?"success":"error";
     }
 
+    //增加
+    @PostMapping("/addOutStock")
+    public String addOne(@RequestBody OutStock outStock){
+        int i=outStockMapper.addOutStock(outStock);
+        return i>0?"success":"error";
+    }
+
+    //修改
+    @PostMapping("/editOutStock")
+    public String editOne(@RequestBody OutStock outStock){
+        int i=outStockMapper.editOutStock(outStock);
+        return i>0?"success":"error";
+    }
 
 }

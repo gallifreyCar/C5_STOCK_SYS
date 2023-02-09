@@ -6,15 +6,13 @@ import com.Gallifrey.springboot00.mapper.LoginMapper;
 import com.Gallifrey.springboot00.mapper.UserMapper;
 import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
-@CrossOrigin("http://localhost:8087")
+
 @RestController
+@CrossOrigin
 public class LoginController {
 
 
@@ -22,14 +20,14 @@ public class LoginController {
     @Autowired
     LoginMapper loginMapper;
 
-    @RequestMapping("/login")
+    @PostMapping("/login")
     public HashMap login(@RequestBody Manager manager){
-            System.out.println(manager);    //打印一下传过来的信息
+//            System.out.println(manager);    //打印一下传过来的信息
 
             Manager trueUser=loginMapper.getManager(manager); //拿到这个管理员信息
             String flag="error";
 
-            System.out.println("Manager: "+trueUser);   //打印一下这个管理员信息
+//            System.out.println("Manager: "+trueUser);   //打印一下这个管理员信息
             HashMap<String,Object> res=new HashMap<>();
 
 

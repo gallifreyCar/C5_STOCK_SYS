@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-
+@MapperScan("com.Gallifrey.springboot00.mapper")
 public class Springboot00Application {
 
     public static void main(String[] args) {

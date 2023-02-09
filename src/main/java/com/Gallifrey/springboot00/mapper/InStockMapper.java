@@ -20,9 +20,9 @@ public interface InStockMapper {
     @Delete("delete from inStock where Ono=#{ono}")
     public int delete(String ono);
 
-    @Insert("insert into inStock (Ono,Gno,Pno,Innum,Indate,Inprice) values(#{ono},#{gno},#{pno},#{innum},#{indate},#{inprice})")
+    @Insert("insert into inStock (Ono,Gno,Pno,Innum,Indate,Inprice,Sno) values(#{ono},#{gno},#{pno},#{innum},#{indate},#{inprice},#{sno})")
     public int addInStock(InStock inStock);
 
-    @Update("update inStock set Gno=#{gno},Pno=#{pno},Innum=#{innum},Indate=#{indate},Inprice=#{inprice} where Ono=#{Ono}")
+    @Update("update inStock set Gno=#{gno},Pno=#{pno},Innum=#{innum},Indate=#{indate},Inprice=#{inprice},Sno=#{sno} where Ono=#{Ono}")
     public int editInStock( InStock inStock);
 }

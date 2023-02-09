@@ -6,21 +6,19 @@ import com.Gallifrey.springboot00.bean.Stock;
 import com.Gallifrey.springboot00.mapper.OutStockMapper;
 import com.Gallifrey.springboot00.mapper.StockMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 
-@CrossOrigin("http://localhost:8087")
-@RestController
 
+@RestController
+@CrossOrigin
 public class StockController {
     @Autowired
     StockMapper stockMapper;
 
-    @RequestMapping("/getStock")
+    @GetMapping("/getStock")
     public HashMap outStock(QueryInfo queryInfo){
 
         //获取最大列表数和当前编号
@@ -39,7 +37,7 @@ public class StockController {
 
 
     //删除
-    @RequestMapping("/deleteStock")
+    @PostMapping("/deleteStock")
     public String deleteUser(String sno,String gno){
         int i=stockMapper.delete(sno,gno);
         return i>0?"success":"error";

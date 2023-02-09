@@ -1,26 +1,25 @@
 package com.Gallifrey.springboot00.contronller;
 
 import com.Gallifrey.springboot00.bean.Good;
+import com.Gallifrey.springboot00.bean.InStock;
 import com.Gallifrey.springboot00.bean.Provider;
 import com.Gallifrey.springboot00.bean.QueryInfo;
 import com.Gallifrey.springboot00.mapper.GoodMapper;
 import com.Gallifrey.springboot00.mapper.ProviderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 
-@CrossOrigin("http://localhost:8087")
-@RestController
 
+@RestController
+@CrossOrigin
 public class GoodController {
     @Autowired
     GoodMapper Mapper;
 
-    @RequestMapping("/getGood")
+    @GetMapping("/getGood")
     public HashMap getList(QueryInfo queryInfo){
 
         //获取最大列表数和当前编号
@@ -38,9 +37,23 @@ public class GoodController {
     }
 
     //删除
-    @RequestMapping("/deleteGood")
+    @PostMapping("/deleteGood")
     public String deleteUser(String gno){
         int i=Mapper.delete(gno);
+        return i>0?"success":"error";
+    }
+
+    //增加
+    @PostMapping("/addGood")
+    public String addOne(@RequestBody Good good){
+        int i=Mapper.addGood(good);
+        return i>0?"success":"error";
+    }
+
+    //修改
+    @PostMapping("/editGood")
+    public String editOne(@RequestBody Good good){
+        int i=Mapper.editGood(good);
         return i>0?"success":"error";
     }
 

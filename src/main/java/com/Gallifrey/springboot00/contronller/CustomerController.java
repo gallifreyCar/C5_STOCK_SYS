@@ -4,21 +4,19 @@ import com.Gallifrey.springboot00.bean.Customer;
 import com.Gallifrey.springboot00.bean.QueryInfo;
 import com.Gallifrey.springboot00.mapper.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 
-@CrossOrigin("http://localhost:8087")
-@RestController
 
+@RestController
+@CrossOrigin
 public class CustomerController {
     @Autowired
     CustomerMapper Mapper;
 
-    @RequestMapping("/getCustomer")
+    @GetMapping("/getCustomer")
     public HashMap getList(QueryInfo queryInfo){
 
         //获取最大列表数和当前编号
@@ -37,7 +35,7 @@ public class CustomerController {
 
 
     //删除
-    @RequestMapping("/deleteCustomer")
+    @PostMapping("/deleteCustomer")
     public String deleteUser(String cno){
         int i=Mapper.delete(cno);
         return i>0?"success":"error";
