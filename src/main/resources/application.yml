@@ -1,9 +1,9 @@
 spring:
   datasource:
     name: ckgl
-    url: jdbc:mysql://101.43.65.22:8978/ckgl
-    username: root
-    password: rootroot
+    url: jdbc:mysql://**********/ckgl
+    username: ****
+    password: ********
     driver-class-name: com.mysql.cj.jdbc.Driver
   mvc:
     pathmatch:
@@ -16,5 +16,3 @@ mybatis:
 
 server:
   port: 9001
-
-
